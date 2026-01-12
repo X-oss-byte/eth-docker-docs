@@ -25,7 +25,7 @@ RUN mv ./node_modules .
 RUN npm run build
 
 # Copy only the dist dir.
-FROM caddy
+FROM caddy:2.11
 RUN rm -rf /usr/share/caddy/html/*
 
 COPY --from=builder /app/website/build /usr/share/caddy/html
